@@ -107,8 +107,6 @@
 
 (global-set-key (kbd "C-c p") 'toggle-proxy)
 
-
-
 ;; 启用原生编译的默认设置
 (setq native-comp-deferred-compilation t)  ;; 延迟编译，以加快启动速度
 

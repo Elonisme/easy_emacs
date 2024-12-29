@@ -3,8 +3,6 @@
 
 ;;; code:
 
-
-
 ;; multiple-cursors
 (use-package multiple-cursors
   :ensure t
@@ -32,7 +30,6 @@
   :config
   (setq which-key-idle-delay 0.5))
 
-
 ;; 增强的 M-x 和 minibuffer 完成
 (use-package ivy
   :ensure t
@@ -49,10 +46,6 @@
   (define-key ivy-minibuffer-map (kbd "C-r") 'ivy-previous-history-element)
   (define-key ivy-minibuffer-map (kbd "C-s") 'ivy-next-history-element)
   (define-key ivy-minibuffer-map (kbd "C-l") 'ivy-alt-done))
-
-;; 安装 amx
-(use-package amx
-  :ensure t)
 
 ;; 安装和配置 Counsel
 (use-package counsel
@@ -77,17 +70,10 @@
   :config
   (setq swiper-action-recenter t)) ;; 确保匹配项居中显示
 
-
-;; 安装并配置'eglot'
-(use-package eglot
-  :hook ((python-mode . eglot-ensure))
-  :config
-  (add-to-list 'eglot-server-programs '(python-mode . ("pylsp"))))
-
 ;; company 补全
 (use-package company
-  :hook ((prog-mode . company-mode)
-         (org-mode . company-mode)
+  :hook ((org-mode . company-mode)
+         (prog-mode . company-mode)
          )
   :config
   ;; 设置更灵活的补全前缀长度和延迟
@@ -115,31 +101,6 @@
 
   ;; 配置 backend 的顺序和优先级
   (setq company-transformers '(company-sort-by-backend-importance)))
-
-;; 增强补全排序和筛选
-(use-package company-prescient
-  :ensure t
-  :after company
-  :config
-  (company-prescient-mode 1)
-  (setq prescient-filter-method '(literal fuzzy)))  ;; 设置 prescient 的过滤方法
-
-
-;; 提供上下文帮助
-(use-package company-quickhelp
-  :ensure t
-  :hook (company-mode . company-quickhelp-mode)
-  :config
-  (setq company-quickhelp-delay 0.5))  ;; 设置帮助显示延迟
-
-
-;; AI 驱动的补全插件
-(use-package company-tabnine
-  :ensure t
-  :after company
-  :config
-  (add-to-list 'company-backends 'company-tabnine))
-
 
 ;; 美化 company 补全界面
 (use-package company-box
@@ -177,33 +138,8 @@
   :ensure t
   :after yasnippet)
 
-;; 配置flycheck 的集成
-(use-package flycheck
-  :ensure t
-  :hook
-  (company-mode . flycheck-mode)
-  :config
-  (setq flycheck-checker 'python-flake8)
-  )
-
-;; 拼写检查配置
-(use-package flyspell
-  :ensure t
-  :diminish flyspell-mode
-  :hook ((text-mode . flyspell-mode) ;; 启用文本模式中的拼写检查
-         (prog-mode . flyspell-prog-mode)) ;; 启用编程模式中的拼写检查
-  :config
-  ;; 配置拼写检查
-  (setq ispell-program-name "aspell")  ;; 设置使用的拼写检查程序，常用的还有 "hunspell"
-  (setq ispell-dictionary "english")   ;; 设置默认的字典
-  (setq ispell-personal-dictionary "~/.emacs.d/.ispell"))  ;; 设置个人字典路径
-
 ;; 重启 emacs
 (use-package restart-emacs
-  :ensure t)
-
-;; vterm shell
-(use-package vterm
   :ensure t)
 
 (provide 'init-basic)

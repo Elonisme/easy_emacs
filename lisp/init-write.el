@@ -150,8 +150,6 @@
   )
 
 
-
-
 (use-package org-fragtog
   :ensure t
 )
@@ -195,17 +193,6 @@
   :hook
   (org-mode . org-auto-tangle-mode)
   )
-
-(use-package denote
-  :ensure t
-  :config
-  ;; 你的 Denote 配置
-  (setq denote-directory "~/Documents/OrgMode") ;; 设置笔记存储目录
-  (setq denote-date-format "%Y-%m-%d") ;; 设置日期格式
-  (setq denote-file-type 'org) ;; 设置笔记文件类型（可选：'md、'org）
-  (setq denote-file-name-format "%Y-%m-%d-%s")) ;; 设置文件名格式
-
-
 
 (provide 'init-write)
 ;;; init-write.el ends here
