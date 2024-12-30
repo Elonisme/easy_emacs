@@ -70,6 +70,7 @@
 ;; 启用 electric-pair-mode
 (electric-pair-mode 1)
 
+
 ;; open pixel-scroll
 (pixel-scroll-mode t)
 (pixel-scroll-precision-mode t)

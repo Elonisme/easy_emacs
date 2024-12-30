@@ -30,35 +30,44 @@
   :config
   (setq which-key-idle-delay 0.5))
 
-;; 增强的 M-x 和 minibuffer 完成
+
+(use-package counsel
+  :ensure t)
+
 (use-package ivy
   :ensure t
-  :diminish
-  :init (ivy-mode)
+  :init
+  (ivy-mode 1)
+  (counsel-mode 1)
   :config
-  ;; 配置 Ivy
-  (setq ivy-use-virtual-buffers t)  ;; 在 Ivy 列表中显示虚拟缓冲区
-  (setq ivy-count-format "(%d/%d) ") ;; 显示匹配项计数
-  (setq ivy-re-builders-alist
-        '((t . ivy--regex-plus)))   ;; 使用更灵活的正则表达式
+  (setq ivy-use-virtual-buffers t)
+  (setq search-default-mode #'char-fold-to-regexp)
+  (setq ivy-count-format "(%d/%d) ")
+  :bind
+  (("C-s" . 'swiper)
+   ("C-x b" . 'ivy-switch-buffer)
+   ("C-c v" . 'ivy-push-view)
+   ("C-c s" . 'ivy-switch-view)
+   ("C-c V" . 'ivy-pop-view)
+   ("C-x C-SPC" . 'counsel-mark-ring)
+   :map minibuffer-local-map
+   ("C-r" . counsel-minibuffer-history)))
 
-  ;; 启用默认键绑定
-  (define-key ivy-minibuffer-map (kbd "C-r") 'ivy-previous-history-element)
-  (define-key ivy-minibuffer-map (kbd "C-s") 'ivy-next-history-element)
-  (define-key ivy-minibuffer-map (kbd "C-l") 'ivy-alt-done))
-
-;; 安装和配置 Counsel
-(use-package counsel
+(use-package amx
   :ensure t
-  :diminish
-  :after ivy
-  :bind (("M-x" . counsel-M-x)  ;; 替代默认的 M-x
-         ("C-x C-f" . counsel-find-file)  ;; 替代默认的 find-file
-         ("C-c g" . counsel-git)  ;; Git 文件搜索
-         ("C-c k" . counsel-ag)  ;; 更强大的 ag 搜索
-         ("C-c j" . counsel-imenu)) ;; Imenu 支持
+  :init (amx-mode))
+
+(use-package ace-window
+  :ensure t
+  :bind (("C-x o" . 'ace-window)))
+
+(use-package smart-mode-line
+  :ensure t
   :config
-  (setq counsel-find-file-at-point t))
+  (setq sml/theme 'respectful)                ;; 设置模式行主题
+  (setq sml/no-confirm-load-theme t)          ;; 加载主题时不需要确认
+  )                               ;; 启动 smart-mode-line
+(sml/setup)
 
 ;; 安装和配置 Swiper
 (use-package swiper

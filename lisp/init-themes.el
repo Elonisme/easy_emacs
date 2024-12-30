@@ -8,20 +8,24 @@
   :ensure t
   )
 
-;; 根据时间自动切换主题
-(defun my/set-theme-based-on-time ()
-  "自动切换主题：白天使用亮色主题，晚上使用暗色主题"
-  (let ((hour (string-to-number (format-time-string "%H"))))
-    (if (and (>= hour 7) (< hour 19))
-        (load-theme 'sanityinc-tomorrow-day t)  ;; 白天使用亮色主题
-      (load-theme 'sanityinc-tomorrow-night t)))) ;; 晚上使用暗色主题
+(use-package color-theme-sanityinc-solarized
+  :ensure t
+  )
+(load-theme 'sanityinc-solarized-light t)
 
-;; 启动时设置初始主题
-(my/set-theme-based-on-time)
+(use-package dashboard
+  :ensure t
+  :config
+  (dashboard-setup-startup-hook)  ;; 启动时显示 dashboard
+  (setq dashboard-banner-logo-title "Welcome to Emacs!"
+        dashboard-startup-banner 'official  ;; 可以选择 logo 图片路径
+        dashboard-center-content t
+        dashboard-items '((recents  . 10)    ;; 最近打开的文件
+                          (bookmarks . 5)   ;; 书签
+                          (projects . 5))   ;; 最近的项目
+        dashboard-set-footer nil))        ;; 关闭底部的 footer
+(dashboard-open t)
 
-;; 每小时检查一次并切换主题
-(run-with-timer 0 (* 60 60) 'my/set-theme-based-on-time)
 
 (provide 'init-themes)
-
 ;;; init-themes.el ends here
