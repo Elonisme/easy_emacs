@@ -160,14 +160,6 @@
   )
 
 
-;; 使用 visual-fill-column 让文本居中并限制文本宽度，提升可读性
-(use-package visual-fill-column
-  :ensure t
-  :hook (org-mode . visual-fill-column-mode)
-  :config
-  (setq visual-fill-column-width 80
-        visual-fill-column-center-text t))
-
 ;; 粘贴图片到org mode
 (use-package org-download
   :ensure t
@@ -193,6 +185,15 @@
   :hook
   (org-mode . org-auto-tangle-mode)
   )
+
+(use-package org-journal
+  :ensure t
+  :config
+  (setq org-journal-dir "~/org/journal/"))
+
+(use-package denote
+  :ensure t)
+
 
 (provide 'init-write)
 ;;; init-write.el ends here
