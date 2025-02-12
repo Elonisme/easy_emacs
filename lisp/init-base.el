@@ -58,8 +58,8 @@
 ;; open visual-line-mode
 (global-visual-line-mode t)
 
-;; 显示行号
-(global-display-line-numbers-mode t)
+;; 不显示行号
+(global-display-line-numbers-mode -1)
 
 ;; auto delete save files
 (setq delete-auto-save-files t)

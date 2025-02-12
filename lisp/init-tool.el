@@ -79,16 +79,6 @@
   :config
   (setq swiper-action-recenter t)) ;; 确保匹配项居中显示
 
-(use-package company
-  :ensure t
-  :hook ((org-mode . company-mode)
-         (emacs-lisp-mode . company-mode))
-  :config
-  (setq company-idle-delay 0.1        ;; 自动补全延迟时间
-        company-minimum-prefix-length 1 ;; 补全触发的最小前缀长度
-        company-selection-wrap-around t) ;; 启用循环选择
-  )
-
 ;; 启用 yasnippet 的全局模式
 (use-package yasnippet
   :ensure t
@@ -98,6 +88,19 @@
 (use-package yasnippet-snippets
   :ensure t
   :after yasnippet)
+
+;; company 补全
+(use-package company
+  :ensure t
+  :hook ((org-mode . company-mode)
+         (prog-mode . company-mode))
+  :config
+  (setq company-idle-delay 0.1        ;; 自动补全延迟时间
+        company-minimum-prefix-length 1 ;; 补全触发的最小前缀长度
+        company-selection-wrap-around t) ;; 启用循环选择
+  )
+
+(setq company-backends '((company-yasnippet company-capf company-files)))
 
 ;; 重启 emacs
 (use-package restart-emacs

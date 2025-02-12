@@ -33,7 +33,7 @@
  '(custom-safe-themes
    '("6bdc4e5f585bb4a500ea38f563ecf126570b9ab3be0598bdf607034bb07a8875" "6819104c5f7d70485b32c10323aa396806d282fcee5b707e462bf3d156f44c39" default))
  '(package-selected-packages
-   '(org-modern cnfonts org org-denote org-journal company-yasnippet yasnippet-snippets yasnippet company quickrun org-download visual-fill-column org-auto-tangle org-fragtog org-appear org-superstar markdown-preview-mode markdown-mode restart-emacs smart-mode-line ace-window amx counsel which-key neotree all-the-icons multiple-cursors dashboard color-theme-sanityinc-solarized color-theme-sanityinc-tomorrow)))
+   '(snippet-collection auto-yasnippet command-log-mode org-wild-notifier org-notify org-alert org-modern cnfonts org org-denote org-journal company-yasnippet yasnippet-snippets yasnippet company quickrun org-download org-auto-tangle org-fragtog org-appear org-superstar markdown-preview-mode markdown-mode restart-emacs smart-mode-line ace-window amx counsel which-key neotree all-the-icons multiple-cursors dashboard color-theme-sanityinc-solarized color-theme-sanityinc-tomorrow)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

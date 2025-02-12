@@ -194,7 +194,6 @@
 (use-package denote
   :ensure t)
 
-
 (provide 'init-write)
 ;;; init-write.el ends here
 

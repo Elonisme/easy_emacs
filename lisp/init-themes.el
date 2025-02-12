@@ -35,9 +35,25 @@
 
 
 (use-package org-modern              
-  :ensure t                          
-  :config                            
-  (setq org-modern-table t)          
+  :ensure t
+  :hook (org-mode . org-modern-mode)
+  :config
+   ;; 启用美化表格
+  (setq org-modern-table t)
+  
+  ;; 启用美化标题
+  (setq org-modern-headline t)
+  
+  ;; 启用漂亮的时间戳格式
+  (setq org-modern-time-stamp t)
+  
+  ;; 启用任务优先图标
+  (setq org-modern-priority t)
+
+  ;; 启用任务状态图标
+  (setq org-modern-task-status t)
+  
+  (global-set-key (kbd "C-c o m") 'org-modern-mode)
   )                                 
 
 
@@ -45,8 +61,15 @@
 (use-package visual-fill-column
   :ensure t
   :config
-  (setq visual-fill-column-width 80
-        visual-fill-column-center-text t))
+  (setq-default visual-fill-column-center-text t)      ;; 启用文本居中
+  (setq-default visual-fill-column-width 100)        ;;设置文本宽度为80字符
+  :hook (
+         (org-mode . visual-fill-column-mode)
+         (prog-mode . visual-fill-column-mode)
+         )            ;; 在 org-mode 中启用
+  )
+
+(add-hook 'org-mode-hook (lambda () (display-line-numbers-mode -1)))
 
 (provide 'init-themes)
 ;;; init-themes.el ends here
