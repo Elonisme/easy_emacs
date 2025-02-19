@@ -89,22 +89,67 @@
   :ensure t
   :after yasnippet)
 
-;; company 补全
-(use-package company
-  :ensure t
-  :hook ((org-mode . company-mode)
-         (prog-mode . company-mode))
-  :config
-  (setq company-idle-delay 0.1        ;; 自动补全延迟时间
-        company-minimum-prefix-length 1 ;; 补全触发的最小前缀长度
-        company-selection-wrap-around t) ;; 启用循环选择
-  )
-
-(setq company-backends '((company-yasnippet company-capf company-files)))
-
 ;; 重启 emacs
 (use-package restart-emacs
   :ensure t)
+
+(use-package corfu
+  :custom
+  (corfu-auto t)
+  (corfu-auto-prefix 2)
+  (corfu-preview-current nil)
+  (corfu-auto-delay 0.2)
+  (corfu-popupinfo-delay '(0.4 . 0.2))
+  :custom-face
+  (corfu-border ((t (:inherit region :background unspecified))))
+  :bind ("M-/" . completion-at-point)
+  :hook ((after-init . global-corfu-mode)
+         (global-corfu-mode . corfu-popupinfo-mode)))
+
+(unless (display-graphic-p)
+  (use-package corfu-terminal
+    :hook (global-corfu-mode . corfu-terminal-mode)))
+
+
+(use-package ivy-rich
+  :ensure t
+  :config
+  (ivy-rich-mode 1)
+  (setcdr (assq t ivy-format-functions-alist) #'ivy-format-function-line)
+  )
+
+(use-package vertico
+  :ensure t
+  :custom (vertico-count 15)
+  :bind (:map vertico-map
+              ("RET" . vertico-directory-enter)
+              ("DEL" . vertico-directory-delete-char)
+              ("M-DEL" . vertico-directory-delete-word))
+  :hook ((after-init . vertico-mode)
+         (rfn-eshadow-update-overlay . vertico-directory-tidy)))
+
+(use-package orderless
+  :ensure t
+  :custom
+  (completion-styles '(orderless basic))
+  (completion-category-overrides '((file (styles basic partial-completion))))
+  (orderless-component-separator #'orderless-escapable-split-on-space))
+
+(use-package vertico-posframe
+  :ensure t
+  :hook (vertico-mode . vertico-posframe-mode)
+  :init (setq vertico-posframe-poshandler
+              #'posframe-poshandler-frame-center-near-bottom
+              vertico-posframe-parameters
+              '((left-fringe  . 8)
+                (right-fringe . 8))))
+
+(use-package nerd-icons-completion
+  :ensure t
+  :hook (vertico-mode . nerd-icons-completion-mode))
+
+(use-package marginalia
+  :hook (after-init . marginalia-mode))
 
 (provide 'init-tool)
 ;;; init-basic.el ends here

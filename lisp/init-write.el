@@ -150,11 +150,6 @@
   )
 
 
-(use-package org-fragtog
-  :ensure t
-)
-
-
 (use-package org-auto-tangle
   :ensure t
   )
@@ -186,13 +181,36 @@
   (org-mode . org-auto-tangle-mode)
   )
 
-(use-package org-journal
-  :ensure t
-  :config
-  (setq org-journal-dir "~/org/journal/"))
 
 (use-package denote
   :ensure t)
+
+(use-package super-save
+  :ensure t
+  :config
+  (super-save-mode +1))
+
+
+(use-package plantuml-mode
+  :ensure t
+  :mode ("\\.plantuml\\'" . plantuml-mode)
+  :init
+  ;; enable plantuml babel support
+  (add-to-list 'org-src-lang-modes '("plantuml" . plantuml))
+  (org-babel-do-load-languages 'org-babel-load-languages
+                               (append org-babel-load-languages
+                                       '((plantuml . t))))
+  :config
+  (setq org-plantuml-exec-mode 'plantuml)
+  (setq org-plantuml-executable-path "plantuml")
+  (setq plantuml-executable-path "plantuml")
+  (setq plantuml-default-exec-mode 'executable)
+  ;; set default babel header arguments
+  (setq org-babel-default-header-args:plantuml
+        '((:exports . "results")
+          (:results . "file")
+          ))
+  )
 
 (provide 'init-write)
 ;;; init-write.el ends here
