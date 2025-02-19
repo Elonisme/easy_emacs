@@ -59,7 +59,7 @@
 (global-visual-line-mode t)
 
 ;; 显示行号
-(global-display-line-numbers-mode t)
+;; (global-display-line-numbers-mode t)
 
 ;; auto delete save files
 (setq delete-auto-save-files t)

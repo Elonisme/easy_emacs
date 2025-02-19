@@ -11,8 +11,6 @@
   ;; 设置快捷键
   (global-set-key (kbd "C-c a") 'org-agenda))
 
-
-
 (use-package org-capture
   :after org
   :config
@@ -54,6 +52,8 @@
   (setq org-alert-interval 3000)  ;; 每 30 分钟检查一次
   (org-alert-enable))
 
+(use-package org-timeblock
+  :ensure t)
 
 (provide 'init-plan)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

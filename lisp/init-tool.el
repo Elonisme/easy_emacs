@@ -8,10 +8,6 @@
   :ensure t
   )
 
-;; 安装 all-the-icons
-(use-package all-the-icons
-  :ensure t)
-
 ;; 设置侧边目录
 (use-package neotree
   :ensure t
@@ -39,10 +35,12 @@
   :init
   (ivy-mode 1)
   (counsel-mode 1)
+  (historian-mode 1)
   :config
   (setq ivy-use-virtual-buffers t)
   (setq search-default-mode #'char-fold-to-regexp)
   (setq ivy-count-format "(%d/%d) ")
+  (ivy-historian-mode 1)
   :bind
   (("C-s" . 'swiper)
    ("C-x b" . 'ivy-switch-buffer)
@@ -94,6 +92,7 @@
   :ensure t)
 
 (use-package corfu
+  :ensure t
   :custom
   (corfu-auto t)
   (corfu-auto-prefix 2)
@@ -108,6 +107,7 @@
 
 (unless (display-graphic-p)
   (use-package corfu-terminal
+    :ensure t
     :hook (global-corfu-mode . corfu-terminal-mode)))
 
 
@@ -149,7 +149,15 @@
   :hook (vertico-mode . nerd-icons-completion-mode))
 
 (use-package marginalia
+  :ensure t
   :hook (after-init . marginalia-mode))
+
+(use-package org-side-tree
+  :ensure t)
+
+(use-package ivy-historian
+  :ensure t
+  )
 
 (provide 'init-tool)
 ;;; init-basic.el ends here

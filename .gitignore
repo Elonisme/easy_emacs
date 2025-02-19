@@ -3,6 +3,9 @@ recentf
 amx-items
 tramp
 .dap-breakpoints
+org-clock-save.el
+.historian
+.org-id-locations
 elpa/
 straight/
 auto-save-list/

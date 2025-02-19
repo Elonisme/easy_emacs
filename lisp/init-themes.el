@@ -3,16 +3,17 @@
 
 ;;; Code:
 
+;; 安装 all-the-icons
+(use-package all-the-icons
+  :ensure t)
 
 (use-package color-theme-sanityinc-tomorrow
-  :ensure t
-  )
+  :ensure t)
 
 (use-package color-theme-sanityinc-solarized
   :ensure t
   :config
-  (load-theme 'sanityinc-solarized-light t)
-  )
+  (load-theme 'sanityinc-solarized-light t))
 
 (use-package dashboard
   :ensure t
