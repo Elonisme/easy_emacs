@@ -22,10 +22,28 @@
   (setq dashboard-banner-logo-title "Welcome to Emacs!"
         dashboard-startup-banner "~/.emacs.d/logo.png"  ;; 可以选择 logo 图片路径
         dashboard-center-content t
-        dashboard-items '((recents  . 10)    ;; 最近打开的文件
+        dashboard-items '((recents . 10)   ;; 最近打开的文件
                           (bookmarks . 5)   ;; 书签
+                          (agenda . 5)      ;; agenda
                           (projects . 5))   ;; 最近的项目
-        dashboard-set-footer nil))        ;; 关闭底部的 footer
+        dashboard-set-footer nil)
+
+  ;; 设置 dashboard 中各项的图标
+  (setq dashboard-item-icons
+        '((recents . "file-text" )
+          (bookmarks . "bookmark" )
+          (agenda . "calendar" )
+          (projects . "folder")))
+
+  (setq dashboard-week-agenda t)
+  (setq dashboard-display-icons-p t)     ; display icons on both GUI and terminal
+  (setq dashboard-icon-type 'nerd-icons) ; use `nerd-icons' package
+  (setq dashboard-heading-icons '((recents   . "nf-oct-history")
+                                  (bookmarks . "nf-oct-bookmark")
+                                  (agenda    . "nf-oct-calendar")
+                                  (projects  . "nf-oct-briefcase")
+                                  (registers . "nf-oct-database")))
+)
 
 
 (use-package cnfonts
