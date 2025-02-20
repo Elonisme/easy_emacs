@@ -2,11 +2,13 @@ places
 recentf
 amx-items
 tramp
+bookmarks
 .dap-breakpoints
 org-clock-save.el
 .historian
 .org-id-locations
 elpa/
+cnfonts/
 straight/
 auto-save-list/
 transient/
