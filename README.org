@@ -31,7 +31,10 @@
 * 安装步骤
 
 1. 安装 Emacs 29 或更高版本。可以通过 =sudo dnf install emacs= 安装。
-2. 将配置文件中的所有内容复制到 =~/.emacs.d/init.el=
+2. 将仓库克隆到本地
+#+BEGIN_SRC shell
+  git clone https://github.com/Elonisme/Coolemacs.git ~/.emacs.d
+#+END_SRC
 3. 配置完毕后，可以使用 =org-capture= 来快速添加任务， =org-agenda= 来查看日程安排。
 
 * 主要插件
