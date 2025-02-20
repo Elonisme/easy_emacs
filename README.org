@@ -3,7 +3,7 @@
 :END:
 #+TITLE: Coolemacs
 
-这是我的 Emacs 配置。该配置包含了常用的插件和功能，帮助提高开发效率。配置中,只使用了 `use-package` 来管理插件，使用 Org-mode 来组织任务和日程安排。
+这是我的 Emacs 配置。该配置最主要的功能是使用 =Org-mode= 来组织任务和日程安排，此外也包含了常用的插件和功能，帮助提高开发效率。另外，该配置只使用了 =use-package= 来管理插件。因此，容易下载依赖，方便配置。
 
 
 #+DOWNLOADED: screenshot @ 2025-02-20 19:26:18
@@ -22,7 +22,7 @@
 * 环境依赖
 
 - Emacs 29 或更高版本
-- GNU/Linux
+- GNU/Linux 操作系统
 
 * 配置文件说明
 
@@ -48,7 +48,7 @@
 
 *1. 代码补全*
 
-在 =org-mode= 和 =elisp-mode= 下启用自动补全，确保编写 Org 文档和 Emacs Lisp 时有良好的支持。
+使用 =corfu= 自动补全，确保编写文档和编程时有良好的支持。
 
 #+BEGIN_SRC emacs-lisp
 (use-package corfu
