@@ -30,6 +30,9 @@
   (org-level-8 ((t (:height 1.0 :weight bold))))
   (org-level-9 ((t (:height 1.0 :weight bold))))
   :config
+  ;; 展开两级目录
+  (setq org-startup-folded 'show2levels)
+  
   ;; set default image width
   (setq org-image-actual-width '(400))
 

@@ -57,15 +57,7 @@
 
 (use-package ace-window
   :ensure t
-  :bind (("C-x o" . 'ace-window)))
-
-(use-package smart-mode-line
-  :ensure t
-  :config
-  (setq sml/theme 'respectful)                ;; 设置模式行主题
-  (setq sml/no-confirm-load-theme t)          ;; 加载主题时不需要确认
-  (sml/setup)
-  )                              
+  :bind (("C-x o" . 'ace-window)))                    
 
 ;; 安装和配置 Swiper
 (use-package swiper

@@ -178,5 +178,13 @@
   :hook (ibuffer-mode . nerd-icons-ibuffer-mode))
 
 
+(use-package doom-modeline
+  :ensure t
+  :config
+  (setq doom-modeline-time t)   ;; 启用时间显示
+  (display-time-mode t)         ;; 启用显示时间模式
+  (doom-modeline-mode 1))
+
+
 (provide 'init-themes)
 ;;; init-themes.el ends here
