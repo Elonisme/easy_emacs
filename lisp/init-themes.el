@@ -7,13 +7,31 @@
 (use-package all-the-icons
   :ensure t)
 
+;; 安装 nerd-icons
+(use-package nerd-icons
+  :ensure t)
+
+(use-package doom-themes
+  :ensure t
+  :config
+  ;; Global settings (defaults)
+  (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
+        doom-themes-enable-italic t) ; if nil, italics is universally disabled
+  (load-theme 'doom-one-light t)
+
+  ;; Enable flashing mode-line on errors
+  (doom-themes-visual-bell-config)
+  ;; Enable custom neotree theme (nerd-icons must be installed!)
+  (doom-themes-neotree-config)
+  ;; Corrects (and improves) org-mode's native fontification.
+  (doom-themes-org-config))
+
 (use-package color-theme-sanityinc-tomorrow
   :ensure t)
 
 (use-package color-theme-sanityinc-solarized
   :ensure t
-  :config
-  (load-theme 'sanityinc-solarized-light t))
+  )
 
 (use-package dashboard
   :ensure t
@@ -22,28 +40,25 @@
   (setq dashboard-banner-logo-title "Welcome to Emacs!"
         dashboard-startup-banner "~/.emacs.d/logo.png"  ;; 可以选择 logo 图片路径
         dashboard-center-content t
-        dashboard-items '((recents . 10)   ;; 最近打开的文件
+        dashboard-vertically-center-content t
+        dashboard-items '((recents . 5)    ;; 最近打开的文件
                           (bookmarks . 5)   ;; 书签
                           (agenda . 5)      ;; agenda
                           (projects . 5))   ;; 最近的项目
-        dashboard-set-footer nil)
+        )
 
-  ;; 设置 dashboard 中各项的图标
-  (setq dashboard-item-icons
-        '((recents . "file-text" )
-          (bookmarks . "bookmark" )
-          (agenda . "calendar" )
-          (projects . "folder")))
-
-  (setq dashboard-week-agenda t)
   (setq dashboard-display-icons-p t)     ; display icons on both GUI and terminal
   (setq dashboard-icon-type 'nerd-icons) ; use `nerd-icons' package
-  (setq dashboard-heading-icons '((recents   . "nf-oct-history")
-                                  (bookmarks . "nf-oct-bookmark")
-                                  (agenda    . "nf-oct-calendar")
-                                  (projects  . "nf-oct-briefcase")
-                                  (registers . "nf-oct-database")))
-)
+  (setq dashboard-set-heading-icons t)
+  (setq dashboard-set-file-icons t)
+  (dashboard-modify-heading-icons '((recents   . "nf-oct-history")
+                                    (bookmarks . "nf-oct-bookmark")
+                                    (agenda    . "nf-oct-calendar")
+                                    (projects  . "nf-oct-briefcase")
+                                    (registers . "nf-oct-database")))
+  (setq dashboard-week-agenda t)
+  (setq dashboard-filter-agenda-entry 'dashboard-no-filter-agenda)
+  )
 
 
 (use-package cnfonts
@@ -148,7 +163,7 @@
           (foreground-color . "#000000")))
 
   ;; 设置弹窗自动消失的时间
-  (setq ivy-posframe-timeout 2)
+  (setq ivy-posframe-timeout 1)
 
   ;; 启用 ivy-posframe
   (ivy-posframe-mode 1))

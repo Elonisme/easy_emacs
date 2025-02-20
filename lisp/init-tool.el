@@ -135,15 +135,6 @@
   (completion-category-overrides '((file (styles basic partial-completion))))
   (orderless-component-separator #'orderless-escapable-split-on-space))
 
-(use-package vertico-posframe
-  :ensure t
-  :hook (vertico-mode . vertico-posframe-mode)
-  :init (setq vertico-posframe-poshandler
-              #'posframe-poshandler-frame-center-near-bottom
-              vertico-posframe-parameters
-              '((left-fringe  . 8)
-                (right-fringe . 8))))
-
 (use-package nerd-icons-completion
   :ensure t
   :hook (vertico-mode . nerd-icons-completion-mode))
