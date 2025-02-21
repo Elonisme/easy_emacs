@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2025-02-20 Thu 20:15 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Coolemacs</title>
+<meta name="author" content="Elon Li" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/bigblow_theme/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/bigblow_theme/css/bigblow.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/bigblow_theme/css/hideshow.css"/>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/bigblow_theme/js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/bigblow_theme/js/jquery-ui-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/bigblow_theme/js/jquery.localscroll-min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/bigblow_theme/js/jquery.scrollTo-1.4.3.1-min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/bigblow_theme/js/jquery.zclip.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/bigblow_theme/js/bigblow.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/bigblow_theme/js/hideshow.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Coolemacs</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org809cf7c">1. 主要特性</a></li>
+<li><a href="#org81ad271">2. 环境依赖</a></li>
+<li><a href="#org03722ef">3. 配置文件说明</a></li>
+<li><a href="#org538b494">4. 安装步骤</a></li>
+<li><a href="#orgb13edc4">5. 主要插件</a></li>
+<li><a href="#org9b0fecb">6. 功能配置</a></li>
+<li><a href="#org4344c2f">7. 常见问题</a></li>
+<li><a href="#org2369d22">8. 贡献</a></li>
+</ul>
+</div>
+</div>
+<p>
+这是我的 Emacs 配置。该配置最主要的功能是使用 <code>Org-mode</code> 来组织任务和日程安排，此外也包含了常用的插件和功能，帮助提高开发效率。另外，该配置只使用了 <code>use-package</code> 来管理插件。因此，容易下载依赖，方便配置。
+</p>
+
+
+
+<div id="org7dae6e6" class="figure">
+<p><img src="imgs/2025-02-20_19-26-18_screenshot.png" alt="2025-02-20_19-26-18_screenshot.png" />
+</p>
+</div>
+
+
+<div id="outline-container-org809cf7c" class="outline-2">
+<h2 id="org809cf7c"><span class="section-number-2">1.</span> 主要特性</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li><b>代码补全</b> ：在 <code>org-mode</code> 和 <code>prog-mode</code> 下启用自动补全。</li>
+<li><b>Emacs 配色</b> ：根据个人喜好进行的主题和配色设置，提升界面美观度。</li>
+<li><b>Dashboard</b> ：使用 <code>dashboard</code> 插件提供启动界面，显示常用文件和任务。</li>
+<li><b>Org-mode 时间管理</b> ：使用 Org-mode 来管理日常任务、时间记录与统计。</li>
+<li><b>插件管理</b> ：使用 <code>use-package</code> 来配置插件，简化插件管理和加载。</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org81ad271" class="outline-2">
+<h2 id="org81ad271"><span class="section-number-2">2.</span> 环境依赖</h2>
+<div class="outline-text-2" id="text-2">
+<ul class="org-ul">
+<li>Emacs 29 或更高版本</li>
+<li>GNU/Linux 操作系统</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org03722ef" class="outline-2">
+<h2 id="org03722ef"><span class="section-number-2">3.</span> 配置文件说明</h2>
+<div class="outline-text-2" id="text-3">
+<ul class="org-ul">
+<li><b>init.el</b> ：主配置文件，加载插件和初始化必要功能。</li>
+<li><b>lisp/</b> ：具体的配置文件。</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org538b494" class="outline-2">
+<h2 id="org538b494"><span class="section-number-2">4.</span> 安装步骤</h2>
+<div class="outline-text-2" id="text-4">
+<ol class="org-ol">
+<li>安装 Emacs 29 或更高版本。可以通过 <code>sudo dnf install emacs</code> 安装。</li>
+<li>将仓库克隆到本地</li>
+</ol>
+<div class="org-src-container">
+<pre class="src src-shell">git clone https://github.com/Elonisme/Coolemacs.git ~/.emacs.d
+</pre>
+</div>
+<ol class="org-ol">
+<li>配置完毕后，可以使用 <code>org-capture</code> 来快速添加任务， <code>org-agenda</code> 来查看日程安排。</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orgb13edc4" class="outline-2">
+<h2 id="orgb13edc4"><span class="section-number-2">5.</span> 主要插件</h2>
+<div class="outline-text-2" id="text-5">
+<ul class="org-ul">
+<li><b>use-package</b> ：简化插件管理，自动加载和配置插件。</li>
+<li><b>dashboard</b> ：提供一个友好的启动界面。</li>
+<li><b>org-mode</b> ：用于任务管理、日程安排以及时间跟踪。</li>
+<li><b>corfu</b> ：提供代码自动补全，提升编程效率。</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org9b0fecb" class="outline-2">
+<h2 id="org9b0fecb"><span class="section-number-2">6.</span> 功能配置</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+<b>1. 代码补全</b>
+</p>
+
+<p>
+使用 <code>corfu</code> 自动补全，确保编写文档和编程时有良好的支持。
+</p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(use-package corfu
+  :ensure t
+  :custom
+  (corfu-auto t)
+  (corfu-auto-prefix 2)
+  (corfu-preview-current nil)
+  (corfu-auto-delay 0.2)
+  (corfu-popupinfo-delay '(0.4 . 0.2))
+  :custom-face
+  (corfu-border ((t (:inherit region :background unspecified))))
+  :bind ("M-/" . completion-at-point)
+  :hook ((after-init . global-corfu-mode)
+         (global-corfu-mode . corfu-popupinfo-mode)))
+
+(unless (display-graphic-p)
+  (use-package corfu-terminal
+    :ensure t
+    :hook (global-corfu-mode . corfu-terminal-mode)))
+</pre>
+</div>
+
+<p>
+<b>2. 任务提醒</b>
+</p>
+
+<p>
+使用 <code>org-alert</code> 插件设置任务提醒，确保不会忘记重要事项。
+</p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(use-package org-alert
+  :ensure t
+  :config
+  (setq alert-default-style 'libnotify)
+  (setq org-alert-interval 3000)  ;; 每 30 分钟检查一次
+  (org-alert-enable))
+</pre>
+</div>
+
+<p>
+<b>3. 时间管理</b>
+</p>
+
+<p>
+使用 <code>org-clock</code> 记录每个任务的时间，并生成报告查看时间使用情况。
+</p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(use-package org-clock
+  :ensure t
+  :config
+  (setq org-clock-persist 'history)
+  (org-clock-persistence-insinuate))
+</pre>
+</div>
+
+<p>
+<b>4. Emacs 启动界面</b>
+</p>
+
+<p>
+使用 <code>dashboard</code> 插件提供一个美观的启动界面，显示常用文件和任务。
+</p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(use-package dashboard
+  :ensure t
+  :config
+  (dashboard-setup-startup-hook)  ;; 启动时显示 dashboard
+  (setq dashboard-banner-logo-title "Welcome to Emacs!"
+        dashboard-startup-banner "~/.emacs.d/logo.png"  ;; 可以选择 logo 图片路径
+        dashboard-center-content t
+        dashboard-vertically-center-content t
+        dashboard-items '((recents . 5)    ;; 最近打开的文件
+                          (bookmarks . 5)   ;; 书签
+                          (agenda . 5)      ;; agenda
+                          (projects . 5))   ;; 最近的项目
+        )
+
+  (setq dashboard-display-icons-p t)     ; display icons on both GUI and terminal
+  (setq dashboard-icon-type 'nerd-icons) ; use `nerd-icons' package
+  (setq dashboard-set-heading-icons t)
+  (setq dashboard-set-file-icons t)
+  (dashboard-modify-heading-icons '((recents   . "nf-oct-history")
+                                    (bookmarks . "nf-oct-bookmark")
+                                    (agenda    . "nf-oct-calendar")
+                                    (projects  . "nf-oct-briefcase")
+                                    (registers . "nf-oct-database")))
+  (setq dashboard-week-agenda t)
+  (setq dashboard-filter-agenda-entry 'dashboard-no-filter-agenda)
+  )
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4344c2f" class="outline-2">
+<h2 id="org4344c2f"><span class="section-number-2">7.</span> 常见问题</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+<b>Q: 如何更新配置？</b>
+</p>
+
+<ul class="org-ul">
+<li>A: 可以直接编辑 <code>init.el</code> 文件或者 <code>lisp/</code> 文件夹下的 <code>.el</code> 文件，添加新的功能或插件配置。</li>
+</ul>
+
+<p>
+<b>Q: 如何添加新的任务？</b>
+</p>
+
+<ul class="org-ul">
+<li>A: 使用 <code>org-capture</code> 来快速记录新任务，可以选择不同的模板来创建任务。</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org2369d22" class="outline-2">
+<h2 id="org2369d22"><span class="section-number-2">8.</span> 贡献</h2>
+<div class="outline-text-2" id="text-8">
+<p>
+如果你有任何建议或问题，欢迎提出 issue 或者 PR！
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Elon Li</p>
+<p class="date">Created: 2025-02-20 Thu 20:15</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

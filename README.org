@@ -1,6 +1,3 @@
-:PROPERTIES:
-:ID:       c32c19e5-cf30-4a25-8f00-dd50ab5ff5e2
-:END:
 #+TITLE: Coolemacs
 
 这是我的 Emacs 配置。该配置最主要的功能是使用 =Org-mode= 来组织任务和日程安排，此外也包含了常用的插件和功能，帮助提高开发效率。另外，该配置只使用了 =use-package= 来管理插件。因此，容易下载依赖，方便配置。
